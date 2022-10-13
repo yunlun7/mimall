@@ -1,21 +1,22 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
-    <router-view/>
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
-// import axios from 'axios'
-import jsonp from 'jsonp'
 export default {
   name: 'App',
+  components: {
+
+  },
+  data () {
+    return {
+
+    }
+  },
   mounted () {
-    let url = 'https://m.imooc.com/api/search/hotword'
-    jsonp(url, (res) => {
-      let result = res
-      this.data = result
-    })
+
   }
 }
 
