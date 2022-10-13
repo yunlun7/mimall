@@ -6,14 +6,15 @@
 </template>
 
 <script>
-import axios from 'axios'
-// import jsonp from 'jsonp'
+// import axios from 'axios'
+import jsonp from 'jsonp'
 export default {
   name: 'App',
   mounted () {
-    let url = 'https://www.imooc.com/activity/servicetime'
-    axios.get(url).then(() => {
-
+    let url = 'https://m.imooc.com/api/search/hotword'
+    jsonp(url, (res) => {
+      let result = res
+      this.data = result
     })
   }
 }
