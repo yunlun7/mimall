@@ -6,9 +6,18 @@
 </template>
 
 <script>
+import axios from 'axios'
+// import jsonp from 'jsonp'
 export default {
-  name: 'App'
+  name: 'App',
+  mounted () {
+    let url = 'https://www.imooc.com/activity/servicetime'
+    axios.get(url).then(() => {
+
+    })
+  }
 }
+
 </script>
 
 <style>
