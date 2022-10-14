@@ -5,6 +5,7 @@
 </template>
 
 <script>
+import storage from '@/storage'
 export default {
   name: 'App',
   components: {
@@ -16,7 +17,16 @@ export default {
     }
   },
   mounted () {
+    // storage.setItem('a', 1)
 
+    // 往user中加入
+    // storage.setItem('user', {a: 1})
+
+    // 在user模块上加入abc属性，值为{a: 1}
+    // storage.setItem('abc', {a: 1}, 'user')
+
+    // 删除
+    storage.clear('a', 'user')
   }
 }
 
