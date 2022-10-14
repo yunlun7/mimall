@@ -57,6 +57,5 @@ new Vue({
   // 使用路由，此处由于文件命名和router一样，可以省略不写
   // 但是如果不是命名为router，就要使用router:路由文件名
   router,
-  components: { App },
-  template: '<App/>'
-})
+  render: h => h(App)
+}).$mount('#app')
