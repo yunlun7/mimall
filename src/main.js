@@ -11,7 +11,7 @@ import VueAxios from 'vue-axios'
 // 引入路由
 import router from '@/router'
 // 在发请求的时候，要设置一些基础的值。根据前端的跨域方式做调整。此处比如：/a/b: /api/a/b => /a/b
-axios.defaults.baseURL = ' https://mock.mengxuegu.com/mock/63498de1ba6bdb4f54a8650c/example'
+axios.defaults.baseURL = 'https://mock.mengxuegu.com/mock/63499805ba6bdb4f54a86514/api'
 // 设置超时时间
 axios.defaults.timeout = 8000
 // 根据环境变量获取不同的请求地址
