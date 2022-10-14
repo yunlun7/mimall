@@ -9,7 +9,7 @@ module.exports = {
         // 代理
         proxy:{
             '/api':{
-                target: 'https://www.imooc.com',
+                target: 'http://www.imooc.com',
                 // 是否要将主机原点更改为目标地址
                 changeOrigin: true,
                 // 转发地址

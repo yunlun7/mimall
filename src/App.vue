@@ -5,7 +5,6 @@
 </template>
 
 <script>
-import storage from '@/storage'
 export default {
   name: 'App',
   components: {
@@ -13,20 +12,22 @@ export default {
   },
   data () {
     return {
+      res: {}
 
     }
   },
   mounted () {
-    // storage.setItem('a', 1)
+    // this.axios是通过vue-axios，axios上挂载到vue实例上，因此可以使用这个作用于去通过.get()方法
+    // 请求数据文件
+    /* 本地加载请求静态json文件的形式
+      this.axios.get('/mock/user/login.json').then((res) => {
+      this.res = res
+    }) */
 
-    // 往user中加入
-    // storage.setItem('user', {a: 1})
-
-    // 在user模块上加入abc属性，值为{a: 1}
-    // storage.setItem('abc', {a: 1}, 'user')
-
-    // 删除
-    storage.clear('a', 'user')
+    // 通过easy-mock 平台实现数据mock
+    this.axios.get('/mock/user/login.json').then((res) => {
+      this.res = res
+    })
   }
 }
 

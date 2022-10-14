@@ -6,16 +6,16 @@ import Vue from 'vue'
 import App from './App'
 import axios from 'axios'
 import VueAxios from 'vue-axios'
-import env from './env'
+// import env from './env'
 
 // 引入路由
 import router from '@/router'
 // 在发请求的时候，要设置一些基础的值。根据前端的跨域方式做调整。此处比如：/a/b: /api/a/b => /a/b
-axios.defaults.baseURL = '/api'
+// axios.defaults.baseURL = '/api'
 // 设置超时时间
 axios.defaults.timeout = 8000
 // 根据环境变量获取不同的请求地址
-axios.defaults.baseURL = env.baseURL
+// axios.defaults.baseURL = env.baseURL
 
 // 接口错误拦截代码
 /*
