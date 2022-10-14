@@ -17,7 +17,7 @@ export default {
     }
   },
   mounted () {
-    // 通过easy-mock 平台实现数据mock
+    // 通过本地集成mockjs实现mock
     this.axios.get('/user/login').then((res) => {
       this.res = res
     })
