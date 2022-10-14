@@ -44,6 +44,7 @@ export default{
     let val = this.getStorage()
     // eslint-disable-next-line camelcase
     if (module_name) {
+      if (!val[module_name]) return
       // 删除模块下面的某一个属性
       delete val[module_name][key]
     } else {
