@@ -19,12 +19,7 @@ export default {
   mounted () {
     // this.axios是通过vue-axios，axios上挂载到vue实例上，因此可以使用这个作用于去通过.get()方法
     // 请求数据文件
-    /* 本地加载请求静态json文件的形式
-      this.axios.get('/mock/user/login.json').then((res) => {
-      this.res = res
-    }) */
-
-    // 通过easy-mock 平台实现数据mock
+    /* 本地加载请求静态json文件的形式 */
     this.axios.get('/mock/user/login.json').then((res) => {
       this.res = res
     })
