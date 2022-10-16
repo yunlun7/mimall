@@ -1,6 +1,5 @@
 <template>
   <div>
-    home
     <nav-header></nav-header>
     <!-- router-view  嵌套子视图 -->
     <router-view></router-view>

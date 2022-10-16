@@ -5,13 +5,17 @@
         "axios",
         "camelcase",
         "gitee",
+        "Heiti",
         "hotword",
         "mockjs",
         "orderfooter",
         "orderheader",
+        "Quan",
         "swiper",
+        "topbar",
         "vuex",
         "xiaomi",
+        "Yahei",
         "yunlu"
     ]
 }

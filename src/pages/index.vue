@@ -2,7 +2,9 @@
 尽可能的将能复用的组件复用好
 -->
 <template>
-  <div>index</div>
+  <div>
+
+  </div>
 </template>
 
 <script>
