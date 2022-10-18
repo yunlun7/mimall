@@ -9,12 +9,13 @@ module.exports = {
         // 代理
         proxy:{
             '/api':{
-                target: 'http://www.imooc.com',
+                // 接口地址
+                target: 'https://mall-pre.springboot.cn',
                 // 是否要将主机原点更改为目标地址
                 changeOrigin: true,
                 // 转发地址
                 pathRewrite: {
-                    '/api':'/api'
+                    '/api':''
                 }
             }
         }

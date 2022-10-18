@@ -26,15 +26,205 @@
         <div class="header-menu">
           <div class="item-menu">
             <span>小米手机</span>
-            <div class="children"></div>
+            <div class="children">
+              <!-- 使用ul标签比较合适循环列表，因为ul的结构比较对称 -->
+              <ul>
+                <li class="product">
+                  <!-- target：使得网页在新的标签页中打开 -->
+                  <a href="" target="_blank">
+                    <div class="pro-img">
+                      <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/4ef3713521fb9d7f114aa8bb152e220d.png?thumb=1&w=200&h=138&f=webp&q=90" alt="">
+                    </div>
+                    <div class="pro-name">小米 Civi2</div>
+                    <div class="pro-price">2399元起</div>
+                  </a>
+                </li>
+                <li class="product">
+                  <!-- target：使得网页在新的标签页中打开 -->
+                  <a href="" target="_blank">
+                    <div class="pro-img">
+                      <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/4ef3713521fb9d7f114aa8bb152e220d.png?thumb=1&w=200&h=138&f=webp&q=90" alt="">
+                    </div>
+                    <div class="pro-name">小米 Civi2</div>
+                    <div class="pro-price">2399元起</div>
+                  </a>
+                </li>
+                <li class="product">
+                  <!-- target：使得网页在新的标签页中打开 -->
+                  <a href="" target="_blank">
+                    <div class="pro-img">
+                      <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/4ef3713521fb9d7f114aa8bb152e220d.png?thumb=1&w=200&h=138&f=webp&q=90" alt="">
+                    </div>
+                    <div class="pro-name">小米 Civi2</div>
+                    <div class="pro-price">2399元起</div>
+                  </a>
+                </li>
+                <li class="product">
+                  <!-- target：使得网页在新的标签页中打开 -->
+                  <a href="" target="_blank">
+                    <div class="pro-img">
+                      <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/4ef3713521fb9d7f114aa8bb152e220d.png?thumb=1&w=200&h=138&f=webp&q=90" alt="">
+                    </div>
+                    <div class="pro-name">小米 Civi2</div>
+                    <div class="pro-price">2399元起</div>
+                  </a>
+                </li>
+                <li class="product">
+                  <!-- target：使得网页在新的标签页中打开 -->
+                  <a href="" target="_blank">
+                    <div class="pro-img">
+                      <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/4ef3713521fb9d7f114aa8bb152e220d.png?thumb=1&w=200&h=138&f=webp&q=90" alt="">
+                    </div>
+                    <div class="pro-name">小米 Civi2</div>
+                    <div class="pro-price">2399元起</div>
+                  </a>
+                </li>
+                <li class="product">
+                  <!-- target：使得网页在新的标签页中打开 -->
+                  <a href="" target="_blank">
+                    <div class="pro-img">
+                      <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/4ef3713521fb9d7f114aa8bb152e220d.png?thumb=1&w=200&h=138&f=webp&q=90" alt="">
+                    </div>
+                    <div class="pro-name">小米 Civi2</div>
+                    <div class="pro-price">2399元起</div>
+                  </a>
+                </li>
+              </ul>
+            </div>
           </div>
           <div class="item-menu">
             <span>RedMi红米</span>
-            <div class="children"></div>
+            <div class="children">
+              <ul>
+                <li class="product">
+                  <!-- target：使得网页在新的标签页中打开 -->
+                  <a href="" target="_blank">
+                    <div class="pro-img">
+                      <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/4ef3713521fb9d7f114aa8bb152e220d.png?thumb=1&w=200&h=138&f=webp&q=90" alt="">
+                    </div>
+                    <div class="pro-name">小米 Civi2</div>
+                    <div class="pro-price">2399元起</div>
+                  </a>
+                </li>
+                <li class="product">
+                  <!-- target：使得网页在新的标签页中打开 -->
+                  <a href="" target="_blank">
+                    <div class="pro-img">
+                      <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/4ef3713521fb9d7f114aa8bb152e220d.png?thumb=1&w=200&h=138&f=webp&q=90" alt="">
+                    </div>
+                    <div class="pro-name">小米 Civi2</div>
+                    <div class="pro-price">2399元起</div>
+                  </a>
+                </li>
+                <li class="product">
+                  <!-- target：使得网页在新的标签页中打开 -->
+                  <a href="" target="_blank">
+                    <div class="pro-img">
+                      <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/4ef3713521fb9d7f114aa8bb152e220d.png?thumb=1&w=200&h=138&f=webp&q=90" alt="">
+                    </div>
+                    <div class="pro-name">小米 Civi2</div>
+                    <div class="pro-price">2399元起</div>
+                  </a>
+                </li>
+                <li class="product">
+                  <!-- target：使得网页在新的标签页中打开 -->
+                  <a href="" target="_blank">
+                    <div class="pro-img">
+                      <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/4ef3713521fb9d7f114aa8bb152e220d.png?thumb=1&w=200&h=138&f=webp&q=90" alt="">
+                    </div>
+                    <div class="pro-name">小米 Civi2</div>
+                    <div class="pro-price">2399元起</div>
+                  </a>
+                </li>
+                <li class="product">
+                  <!-- target：使得网页在新的标签页中打开 -->
+                  <a href="" target="_blank">
+                    <div class="pro-img">
+                      <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/4ef3713521fb9d7f114aa8bb152e220d.png?thumb=1&w=200&h=138&f=webp&q=90" alt="">
+                    </div>
+                    <div class="pro-name">小米 Civi2</div>
+                    <div class="pro-price">2399元起</div>
+                  </a>
+                </li>
+                <li class="product">
+                  <!-- target：使得网页在新的标签页中打开 -->
+                  <a href="" target="_blank">
+                    <div class="pro-img">
+                      <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/4ef3713521fb9d7f114aa8bb152e220d.png?thumb=1&w=200&h=138&f=webp&q=90" alt="">
+                    </div>
+                    <div class="pro-name">小米 Civi2</div>
+                    <div class="pro-price">2399元起</div>
+                  </a>
+                </li>
+              </ul>
+            </div>
           </div>
           <div class="item-menu">
             <span>电视</span>
-            <div class="children"></div>
+            <div class="children">
+              <ul>
+                <li class="product">
+                  <!-- target：使得网页在新的标签页中打开 -->
+                  <a href="" target="_blank">
+                    <div class="pro-img">
+                      <img src="./../assets/imgs/nav-img/nav-3-1.jpg" alt="">
+                    </div>
+                    <div class="pro-name">小米 壁画电视 65英寸</div>
+                    <div class="pro-price">23499元起</div>
+                  </a>
+                </li>
+                <li class="product">
+                  <!-- target：使得网页在新的标签页中打开 -->
+                  <a href="" target="_blank">
+                    <div class="pro-img">
+                      <img src="./../assets/imgs/nav-img/nav-3-2.jpg" alt="">
+                    </div>
+                    <div class="pro-name">小米 壁画电视 65英寸</div>
+                    <div class="pro-price">23399元起</div>
+                  </a>
+                </li>
+                <li class="product">
+                  <!-- target：使得网页在新的标签页中打开 -->
+                  <a href="" target="_blank">
+                    <div class="pro-img">
+                      <img src="./../assets/imgs/nav-img/nav-3-3.png" alt="">
+                    </div>
+                    <div class="pro-name">小米 壁画电视 65英寸</div>
+                    <div class="pro-price">23199元起</div>
+                  </a>
+                </li>
+                <li class="product">
+                  <!-- target：使得网页在新的标签页中打开 -->
+                  <a href="" target="_blank">
+                    <div class="pro-img">
+                      <img src="./../assets/imgs/nav-img/nav-3-4.jpg" alt="">
+                    </div>
+                    <div class="pro-name">小米 壁画电视 65英寸</div>
+                    <div class="pro-price">22399元起</div>
+                  </a>
+                </li>
+                <li class="product">
+                  <!-- target：使得网页在新的标签页中打开 -->
+                  <a href="" target="_blank">
+                    <div class="pro-img">
+                      <img src="./../assets/imgs/nav-img/nav-3-5.jpg" alt="">
+                    </div>
+                    <div class="pro-name">小米 壁画电视 65英寸</div>
+                    <div class="pro-price">23299元起</div>
+                  </a>
+                </li>
+                <li class="product">
+                  <!-- target：使得网页在新的标签页中打开 -->
+                  <a href="" target="_blank">
+                    <div class="pro-img">
+                      <img src="./../assets/imgs/nav-img/nav-3-6.png" alt="">
+                    </div>
+                    <div class="pro-name">查看全部</div>
+                    <div class="pro-price">查看全部</div>
+                  </a>
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
         <div class="header-search">
@@ -50,13 +240,40 @@
 
 <script>
 export default {
-  name: 'NavHeader'
+  name: 'NavHeader',
+  data () {
+    return {
+      username: 'jack',
+      phoneList: []
+    }
+  },
+  mounted () {
+    this.getProductList()
+  },
+  methods: {
+    getProductList () {
+      // 接口名称就是products，使用代理的方式
+      this.axios.get('/products', {
+        params: {
+          categoryId: '100012'
+          // pageSize: 6
+        }
+      }).then((res) => {
+        // 设置查询数据的最大值
+        if (res.list > 6) {
+          this.phoneList = res.list.slice(0, 6)
+        }
+      })
+    }
+  }
 }
 </script>
 
 <style lang="scss">
 $img: '../assets/imgs';
   @import './../assets/scss/base.scss';
+  @import './../assets/scss/mixin.scss';
+  @import './../assets/scss/config.scss';
   .header{
   .nav-topbar{
     height: 39px;
@@ -64,11 +281,8 @@ $img: '../assets/imgs';
     background-color: #333333;
     color: #B0B0B0;
     .container{
-    display: flex;
-    // 两边对齐
-    justify-content: space-between;
-    // 水平放居中
-    align-items: center;
+    // 调用封装好的mixin.scss中的方法
+    @include flex();
     // 定义a标签
     a{
       display: inline-block;
@@ -79,17 +293,12 @@ $img: '../assets/imgs';
     }
     .my-cart{
       width: 100px;
-      background-color: #FF6600;
+      background-color: $colorA;
       text-align: center;
       color: #ffffff;
       .icon-cart{
-        display: inline-block;
-        width: 23px;
-        height: 12px;
-        // 由于使用的是span标签，所以可以这样引用,使用no-repeat填充，center控制居中
-        background:url('#{$img}/icon-cart-checked.png') no-repeat center;
-        // 设置填充，使其填满
-        background-size: contain;
+        // 使用.scss文件引入，提高代码复用率
+        @include bgImg(16px, 12px, '#{$img}/icon-cart-checked.png');
         margin-right: 4px;
       }
     }
@@ -97,18 +306,18 @@ $img: '../assets/imgs';
   }
   .nav-header{
     .container{
+      position: relative;
       height: 112px;
       // 设置居中布局
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+      // 调用封装好的mixin.scss中的方法
+      @include flex();
       // logo可以认为是相框，而a标签可以认为是相册，应为它内部是轮播的
       .header-logo{
         display: inline-block;
         width: 55px;
         height: 55px;
         // 加一个背景颜色，防止图片在页面上看不出来
-        background-color: #FF6600;
+        background-color: $colorA;
         // 设置两张图片
         a{
           display: inline-block;
@@ -119,19 +328,15 @@ $img: '../assets/imgs';
           // 此处生成一个伪类，因为是两张图片，需要占位
           &:before{
             // content 这一部分很重要
-            content: '';
-            display: inline-block;
-            background:url('#{$img}/mi-logo.png') no-repeat center;
-            background-size: 55px;
+            content: ' ';
+            @include bgImg(55px, 55px, '#{$img}/mi-logo.png', 55px);
             // 让动画效果连续起来
             transition: margin .2s;
           }
           &:after{
             // content 是占位的，这一部分很重要，如果不加的话就显示不了
-            content: '';
-            display: inline-block;
-            background:url('#{$img}/mi-home.png') no-repeat center;
-            background-size: 55px;
+            content: ' ';
+            @include bgImg(55px, 55px, '#{$img}/mi-home.png', 55px);
           }
           &:hover:before{
             margin-left: -55px;
@@ -143,7 +348,7 @@ $img: '../assets/imgs';
       .header-menu{
         // 行内块级元素
         display: inline-block;
-        // width: 200px;
+        width: 643px;
         padding-left: 209px;
         .item-menu{
           display: inline-block;
@@ -158,6 +363,79 @@ $img: '../assets/imgs';
           }
           // 这个hover是控制item-menu的
           &:hover{
+            color: $colorA;
+            .children{
+              height: 220px;
+              // 当鼠标移动到对应位置时，设置透明度为1，即可见
+              opacity: 1;
+            }
+          }
+          .children{
+              position: absolute;
+              top: 112px;
+              left: 0px;
+              // 和安全区域的宽度一致
+              width: 1226px;
+              height: 0;
+              border-bottom: 1px solid #e5e5e5;
+              // 设置透明度，即不可见
+              opacity: 0;
+              // 当不显示的时候，将此快区域隐藏起来
+              overflow: hidden;
+              // 添加动画效果
+              transition: height .5s;
+              // 设置阴影
+              box-shadow: 0px 7px, 6px, 0px rgba(0, 0, 0, 0.11);
+              // 添加背景色，防止因为层级关系被遮住了
+              z-index: 10;
+              .product{
+                position: relative;
+                float: left;
+                // 当不知道宽度的具体数值的时候，就可以使用百分比的形式表示
+                width: 16.6%;
+                height: 220px;
+                font-size: 12px;
+                line-height: 12px;
+                text-align: center;
+                a{
+                  // 此处设置a标签是因为a下面的div是块级标签，而a标签是行内的，无法撑开
+                  display: inline-block;
+                }
+              img{
+                  // 只设置其中一种就可以了，让其自然撑开
+                  width: auto;
+                  height: 110px;
+                  margin-top: 26px;
+                }
+              .pro-img{
+                  height: 137px;
+              }
+              .pro-name{
+                // 加粗
+                  font-weight: bold;
+                  margin-top: 19px;
+                  margin-bottom: 8px;
+                  color: $colorB;
+              }
+              .pro-price{
+                  color: $colorA;
+              }
+              // 添加一个伪类，在每一个产品右边加一条线
+              &:before{
+                  content:' ';
+                  position: absolute;
+                  top: 28px;
+                  right: 0;
+                  border-left: 1px solid $colorF;
+                  height: 100px;
+                  width: 1px;
+              }
+              // 不想要最后的一根线的办法：
+              &:last-child:before{
+                // 将其样式置为空，即可去除掉样式了
+                display: none;
+              }
+            }
           }
         }
       }
@@ -166,16 +444,22 @@ $img: '../assets/imgs';
         .wrapper{
           height: 50px;
           border: 1px solid #E0E0E0;
+          // flex布局可以控制图标
           display: flex;
           align-items: center;
           input{
             border: none;
             border-right: 1px solid #e0e0e0;
+            // 使文本输入框的宽度固定
+            box-sizing: border-box;
+            // 此处的宽高不可以不设置，因为input自身是有默认的值的
             width: 264px;
             height: 50px;
             padding-left: 14px;
           }
           a{
+            @include bgImg(18px, 18px, '#{$img}/icon-search.png');
+            margin-left: 17px;
           }
         }
       }

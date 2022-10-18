@@ -1,0 +1,22 @@
+// flex 布局复用
+
+// 定义一个混合函数
+// 定义参数变量：$hov:space-between, $col: center
+@mixin flex ($hov:space-between, $col: center) {
+  display: flex;
+  // 两端对齐
+  justify-content: $hov;
+  // 水平居中
+  align-items: $col;
+}
+
+@mixin bgImg ($w: 0, $h: 0, $img: ' ', $size: contain) {
+  display: inline-block;
+  // 此处的宽高不可不写，否则无法显示
+  width: $w;
+  height: $h;
+  // 由于使用的是span标签，所以可以这样引用,使用no-repeat填充，center控制居中
+  background:url($img) no-repeat center;
+  // 设置填充，使其填满
+  background-size: $size;
+}
