@@ -124,9 +124,10 @@ export default {
         }
       }).then((res) => {
         // 设置获取到数据的最大值
-        if (res.list.length >= 6) {
-          this.phoneList = res.list.slice(0, 6)
-        }
+        // if (res.list.length >= 6) {
+        //   this.phoneList = res.list.slice(0, 6)
+        // }
+        this.phoneList = res.list
       })
     },
     goToCart () {
@@ -256,6 +257,7 @@ $img: '../assets/imgs';
               box-shadow: 0px 7px, 6px, 0px rgba(0, 0, 0, 0.11);
               // 添加背景色，防止因为层级关系被遮住了
               z-index: 10;
+              background-color: #ffffff;
               .product{
                 position: relative;
                 float: left;
