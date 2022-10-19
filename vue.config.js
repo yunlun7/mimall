@@ -5,19 +5,7 @@ module.exports = {
         // 主机
         host: 'localhost',
         // 端口，可以修改
-        port: 8080,
+        port: 8080
         // 代理
-        proxy:{
-            '/api':{
-                // 接口地址
-                target: 'https://mall-pre.springboot.cn',
-                // 是否要将主机原点更改为目标地址
-                changeOrigin: true,
-                // 转发地址
-                pathRewrite: {
-                    '/api':''
-                }
-            }
-        }
     }
 }

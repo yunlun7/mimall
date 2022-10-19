@@ -11,9 +11,10 @@
           <a href="javascript:;">协议规则</a>
         </div>
         <div class="topbar-user">
-          <a href="javascript:;">登录</a>
-          <a href="javascript:;">注册</a>
-          <a href="javascript:;" class="my-cart"><span class="icon-cart"></span>购物车</a>
+          <a href="javascript:;" v-if="username">{{username}}</a>
+          <a href="javascript:;" v-if="!username" @click="login">登录</a>
+          <a href="javascript:;" v-if="username">我的订单</a>
+          <a href="javascript:;" class="my-cart" @click="goToCart"><span class="icon-cart"></span>购物车</a>
         </div>
       </div>
     </div>
@@ -29,64 +30,15 @@
             <div class="children">
               <!-- 使用ul标签比较合适循环列表，因为ul的结构比较对称 -->
               <ul>
-                <li class="product">
+                <li class="product" v-for="(item, index) in phoneList" :key="index">
                   <!-- target：使得网页在新的标签页中打开 -->
-                  <a href="" target="_blank">
+                  <a :href="'/#/product/' + item.id" target="_blank">
                     <div class="pro-img">
-                      <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/4ef3713521fb9d7f114aa8bb152e220d.png?thumb=1&w=200&h=138&f=webp&q=90" alt="">
+                      <img :src="item.mainImage" :alt="item.subtitle">
                     </div>
-                    <div class="pro-name">小米 Civi2</div>
-                    <div class="pro-price">2399元起</div>
-                  </a>
-                </li>
-                <li class="product">
-                  <!-- target：使得网页在新的标签页中打开 -->
-                  <a href="" target="_blank">
-                    <div class="pro-img">
-                      <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/4ef3713521fb9d7f114aa8bb152e220d.png?thumb=1&w=200&h=138&f=webp&q=90" alt="">
-                    </div>
-                    <div class="pro-name">小米 Civi2</div>
-                    <div class="pro-price">2399元起</div>
-                  </a>
-                </li>
-                <li class="product">
-                  <!-- target：使得网页在新的标签页中打开 -->
-                  <a href="" target="_blank">
-                    <div class="pro-img">
-                      <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/4ef3713521fb9d7f114aa8bb152e220d.png?thumb=1&w=200&h=138&f=webp&q=90" alt="">
-                    </div>
-                    <div class="pro-name">小米 Civi2</div>
-                    <div class="pro-price">2399元起</div>
-                  </a>
-                </li>
-                <li class="product">
-                  <!-- target：使得网页在新的标签页中打开 -->
-                  <a href="" target="_blank">
-                    <div class="pro-img">
-                      <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/4ef3713521fb9d7f114aa8bb152e220d.png?thumb=1&w=200&h=138&f=webp&q=90" alt="">
-                    </div>
-                    <div class="pro-name">小米 Civi2</div>
-                    <div class="pro-price">2399元起</div>
-                  </a>
-                </li>
-                <li class="product">
-                  <!-- target：使得网页在新的标签页中打开 -->
-                  <a href="" target="_blank">
-                    <div class="pro-img">
-                      <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/4ef3713521fb9d7f114aa8bb152e220d.png?thumb=1&w=200&h=138&f=webp&q=90" alt="">
-                    </div>
-                    <div class="pro-name">小米 Civi2</div>
-                    <div class="pro-price">2399元起</div>
-                  </a>
-                </li>
-                <li class="product">
-                  <!-- target：使得网页在新的标签页中打开 -->
-                  <a href="" target="_blank">
-                    <div class="pro-img">
-                      <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/4ef3713521fb9d7f114aa8bb152e220d.png?thumb=1&w=200&h=138&f=webp&q=90" alt="">
-                    </div>
-                    <div class="pro-name">小米 Civi2</div>
-                    <div class="pro-price">2399元起</div>
+                    <div class="pro-name">{{item.name}}</div>
+                    <!-- 价格部分需要使用过滤器 ，因为数据返回的只是金额数值-->
+                    <div class="pro-price">{{item.price | currency}}</div>
                   </a>
                 </li>
               </ul>
@@ -96,56 +48,6 @@
             <span>RedMi红米</span>
             <div class="children">
               <ul>
-                <li class="product">
-                  <!-- target：使得网页在新的标签页中打开 -->
-                  <a href="" target="_blank">
-                    <div class="pro-img">
-                      <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/4ef3713521fb9d7f114aa8bb152e220d.png?thumb=1&w=200&h=138&f=webp&q=90" alt="">
-                    </div>
-                    <div class="pro-name">小米 Civi2</div>
-                    <div class="pro-price">2399元起</div>
-                  </a>
-                </li>
-                <li class="product">
-                  <!-- target：使得网页在新的标签页中打开 -->
-                  <a href="" target="_blank">
-                    <div class="pro-img">
-                      <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/4ef3713521fb9d7f114aa8bb152e220d.png?thumb=1&w=200&h=138&f=webp&q=90" alt="">
-                    </div>
-                    <div class="pro-name">小米 Civi2</div>
-                    <div class="pro-price">2399元起</div>
-                  </a>
-                </li>
-                <li class="product">
-                  <!-- target：使得网页在新的标签页中打开 -->
-                  <a href="" target="_blank">
-                    <div class="pro-img">
-                      <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/4ef3713521fb9d7f114aa8bb152e220d.png?thumb=1&w=200&h=138&f=webp&q=90" alt="">
-                    </div>
-                    <div class="pro-name">小米 Civi2</div>
-                    <div class="pro-price">2399元起</div>
-                  </a>
-                </li>
-                <li class="product">
-                  <!-- target：使得网页在新的标签页中打开 -->
-                  <a href="" target="_blank">
-                    <div class="pro-img">
-                      <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/4ef3713521fb9d7f114aa8bb152e220d.png?thumb=1&w=200&h=138&f=webp&q=90" alt="">
-                    </div>
-                    <div class="pro-name">小米 Civi2</div>
-                    <div class="pro-price">2399元起</div>
-                  </a>
-                </li>
-                <li class="product">
-                  <!-- target：使得网页在新的标签页中打开 -->
-                  <a href="" target="_blank">
-                    <div class="pro-img">
-                      <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/4ef3713521fb9d7f114aa8bb152e220d.png?thumb=1&w=200&h=138&f=webp&q=90" alt="">
-                    </div>
-                    <div class="pro-name">小米 Civi2</div>
-                    <div class="pro-price">2399元起</div>
-                  </a>
-                </li>
                 <li class="product">
                   <!-- target：使得网页在新的标签页中打开 -->
                   <a href="" target="_blank">
@@ -173,56 +75,6 @@
                     <div class="pro-price">23499元起</div>
                   </a>
                 </li>
-                <li class="product">
-                  <!-- target：使得网页在新的标签页中打开 -->
-                  <a href="" target="_blank">
-                    <div class="pro-img">
-                      <img src="./../assets/imgs/nav-img/nav-3-2.jpg" alt="">
-                    </div>
-                    <div class="pro-name">小米 壁画电视 65英寸</div>
-                    <div class="pro-price">23399元起</div>
-                  </a>
-                </li>
-                <li class="product">
-                  <!-- target：使得网页在新的标签页中打开 -->
-                  <a href="" target="_blank">
-                    <div class="pro-img">
-                      <img src="./../assets/imgs/nav-img/nav-3-3.png" alt="">
-                    </div>
-                    <div class="pro-name">小米 壁画电视 65英寸</div>
-                    <div class="pro-price">23199元起</div>
-                  </a>
-                </li>
-                <li class="product">
-                  <!-- target：使得网页在新的标签页中打开 -->
-                  <a href="" target="_blank">
-                    <div class="pro-img">
-                      <img src="./../assets/imgs/nav-img/nav-3-4.jpg" alt="">
-                    </div>
-                    <div class="pro-name">小米 壁画电视 65英寸</div>
-                    <div class="pro-price">22399元起</div>
-                  </a>
-                </li>
-                <li class="product">
-                  <!-- target：使得网页在新的标签页中打开 -->
-                  <a href="" target="_blank">
-                    <div class="pro-img">
-                      <img src="./../assets/imgs/nav-img/nav-3-5.jpg" alt="">
-                    </div>
-                    <div class="pro-name">小米 壁画电视 65英寸</div>
-                    <div class="pro-price">23299元起</div>
-                  </a>
-                </li>
-                <li class="product">
-                  <!-- target：使得网页在新的标签页中打开 -->
-                  <a href="" target="_blank">
-                    <div class="pro-img">
-                      <img src="./../assets/imgs/nav-img/nav-3-6.png" alt="">
-                    </div>
-                    <div class="pro-name">查看全部</div>
-                    <div class="pro-price">查看全部</div>
-                  </a>
-                </li>
               </ul>
             </div>
           </div>
@@ -247,23 +99,39 @@ export default {
       phoneList: []
     }
   },
+  // 定义一个过滤器
+  filters: {
+    // currency在vue1.0的时候，是一个自带的内置过滤器。2.0之后需要手动书写
+    currency (val) {
+      if (!val) return '0.00'
+      return '￥' + val.toFixed(2) + '元'
+    }
+  },
   mounted () {
     this.getProductList()
   },
   methods: {
+    login () {
+      this.$router.push('/login')
+    },
     getProductList () {
       // 接口名称就是products，使用代理的方式
+      // 采用get方式请的话，使用params传参，若使用post就直接写
       this.axios.get('/products', {
         params: {
-          categoryId: '100012'
-          // pageSize: 6
+          categoryId: '100012',
+          pageSize: 6
         }
       }).then((res) => {
-        // 设置查询数据的最大值
-        if (res.list > 6) {
+        // 设置获取到数据的最大值
+        if (res.list.length >= 6) {
           this.phoneList = res.list.slice(0, 6)
         }
       })
+    },
+    goToCart () {
+      // 路由跳转
+      this.$router.push('/cart')
     }
   }
 }

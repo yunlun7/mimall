@@ -12,7 +12,7 @@ import router from '@/router'
 // import env from './env'
 
 // 定义开关
-const mock = true
+const mock = false
 if (mock) {
   /*
   import 是预编译加载

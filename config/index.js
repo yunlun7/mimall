@@ -5,12 +5,23 @@
 const path = require('path')
 
 module.exports = {
-  dev: {
+    dev: {
 
     // Paths
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
-    proxyTable: {},
+    proxyTable: {
+      '/api':{
+        // 接口地址
+        target: 'http://mall-pre.springboot.cn',
+        // 是否要将主机原点更改为目标地址
+        changeOrigin: true,
+        // 转发地址
+        pathRewrite: {
+            '/api':' '
+        }
+      }
+    },
 
     // Various Dev Server settings
     host: 'localhost', // can be overwritten by process.env.HOST
