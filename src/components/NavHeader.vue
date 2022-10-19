@@ -124,9 +124,10 @@ export default {
         }
       }).then((res) => {
         // 设置获取到数据的最大值
-        if (res.list.length >= 6) {
-          this.phoneList = res.list.slice(0, 6)
-        }
+        // if (res.list.length >= 6) {
+        //   this.phoneList = res.list.slice(0, 6)
+        // }
+        this.phoneList = res.list
       })
     },
     goToCart () {
