@@ -256,6 +256,7 @@ $img: '../assets/imgs';
               box-shadow: 0px 7px, 6px, 0px rgba(0, 0, 0, 0.11);
               // 添加背景色，防止因为层级关系被遮住了
               z-index: 10;
+              background-color: #ffffff;
               .product{
                 position: relative;
                 float: left;
