@@ -232,9 +232,10 @@ export default{
       this.axios.get('/products', {
         params: {
           categoryId: 100012,
-          pageSize: 8
+          pageSize: 14
         }
       }).then((res) => {
+        res.list = res.list.slice(6, 14)
         // 生成二维数组对数组进行切割，0-4是第一个数组，4-8是第二个数组
         this.phoneList = [res.list.slice(0, 4), res.list.slice(4, 8)]
       })
