@@ -75,8 +75,34 @@
           <img src="./../assets/imgs/banner-1.png" alt="">
         </a>
       </div>
-      <div class="product-box"></div>
     </div>
+    <div class="product-box">
+        <div class="container">
+          <h2>手机</h2>
+          <div class="wrapper">
+            <div class="banner-left">
+              <a href="/#/product/">
+                <img src="./../assets/imgs/mix-alpha.jpg" alt="">
+              </a>
+            </div>
+            <div class="list-box">
+              <div class="list" v-for="(arr, index) in phoneList" :key="index">
+                <div class="item" v-for="(item, index) in arr" :key="index">
+                  <span :class="{'new-pro':index%2 == 0}">新品</span>
+                  <div class="item-img">
+                    <img :src="item.mainImage" alt="">
+                  </div>
+                  <div class="item-info">
+                    <h3>{{item.name}}</h3>
+                    <p>{{item.subtitle}}</p>
+                    <p class="price">{{item.price}}元</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     <service-bar></service-bar>
   </div>
 </template>
@@ -189,7 +215,29 @@ export default{
           id: 47,
           img: require('./../assets/imgs/ads/ads-4.jpg')
         }
+      ],
+      // 定义手机列表数据
+      phoneList: [
+
       ]
+    }
+  },
+  // 初始化商品
+  mounted () {
+    this.init()
+  },
+  methods: {
+  // 主要是初始化产品数据
+    init () {
+      this.axios.get('/products', {
+        params: {
+          categoryId: 100012,
+          pageSize: 8
+        }
+      }).then((res) => {
+        // 生成二维数组对数组进行切割，0-4是第一个数组，4-8是第二个数组
+        this.phoneList = [res.list.slice(0, 4), res.list.slice(4, 8)]
+      })
     }
   }
 }
@@ -293,6 +341,92 @@ export default{
   }
   .banner{
     margin-bottom: 50px;
+  }
+  .product-box{
+    background-color: #F5F5F5;
+    padding: 30px 0 50px;
+    h2{
+      font-size: 22px;
+      height: 21px;
+      line-height: 21px;
+      color: #333333;
+      margin-bottom: 20px;
+    }
+    .wrapper{
+      display: flex;
+      .banner-left{
+        margin-right: 16px;
+        img{
+          width: 224px;
+          height: 619px;
+        }
+      }
+      .list-box{
+        .list{
+          @include flex();
+          width: 986px;
+          margin-bottom: 14px;
+          &:last-child{
+            margin-bottom: 0;
+          }
+          .item{
+            width: 236px;
+            height: 302px;
+            background-color: #ffffff;
+            text-align: center;
+            span{
+              display: inline-block;
+              width: 67px;
+              height: 24px;
+              font-size: 14px;
+              line-height: 24px;
+              color: #ffffff;
+              &.new-pro{
+                background-color: #7ECF68;
+              }
+              &.kill-pro{
+                background-color: #E82626;
+              }
+
+            }
+          }
+          .item-img{
+            img{
+              width: 100%;
+              height: 195px
+            };
+          }
+          .item-info{
+            h3{
+              font-size: 14px;
+              color: #333333;
+              line-height: 14px;
+              // 加粗
+              font-weight: bold;
+            }
+            p{
+              color: #999999;
+              line-height: 13px;
+              margin: 6px auto 13px;
+            }
+            .price{
+              color: #F20A0A;
+              font-size: 14px;
+              font-weight: bold;
+              // 添加点击功能
+              cursor: pointer;
+              // 添加一个加入购物车的功能
+              &:after{
+                @include bgImg(22px, 22px, '../assets/imgs/icon-cart-hover.png');
+                content: ' ';
+                margin-left: 5px;
+                vertical-align: middle;
+              }
+            }
+          }
+        }
+      }
+    }
   }
 }
 </style>
