@@ -95,7 +95,7 @@
                   <div class="item-info">
                     <h3>{{item.name}}</h3>
                     <p>{{item.subtitle}}</p>
-                    <p class="price">{{item.price}}元</p>
+                    <p class="price" @click="addCart">{{item.price}}元</p>
                   </div>
                 </div>
               </div>
@@ -104,11 +104,28 @@
         </div>
       </div>
     <service-bar></service-bar>
+    <modal
+     title="提示"
+     sureText="查看购物车"
+     btnType="1"
+     modalType="middle"
+     v-bind:showModal="showModal"
+     @submit="goToCart"
+     @cancel="goToCart=false"
+     >
+      <!-- 使用模板将其包起来 -->
+      <template v-slot:body>
+        <p>商品添加成功！</p>
+      </template>
+    </modal>
   </div>
 </template>
 
 <script>
 import ServiceBar from '@/components/ServiceBar'
+// 引入弹框组件
+import Modal from '@/components/Modal'
+
 // 引入轮播组件
 import {swiper, swiperSlide} from 'vue-awesome-swiper'
 // 导入swiper的样式
@@ -118,7 +135,8 @@ export default{
   components: {
     ServiceBar,
     swiper,
-    swiperSlide
+    swiperSlide,
+    Modal
   },
   data () {
     return {
@@ -217,9 +235,8 @@ export default{
         }
       ],
       // 定义手机列表数据
-      phoneList: [
-
-      ]
+      phoneList: [],
+      showModal: false
     }
   },
   // 初始化商品
@@ -239,6 +256,22 @@ export default{
         // 生成二维数组对数组进行切割，0-4是第一个数组，4-8是第二个数组
         this.phoneList = [res.list.slice(0, 4), res.list.slice(4, 8)]
       })
+    },
+    // 加入购物车
+    addCart () {
+      this.showModal = true
+      // 当实现了注册功能后使用，参数id也先不加上先
+      // this.axios.post('/carts', {
+      //   productId: id,
+      //   selected: true
+      // }).then(() => {
+
+      // }).catch(() => {
+      //   this.showModal = true
+      // })
+    },
+    goToCart () {
+      this.$router.push('/cart')
     }
   }
 }

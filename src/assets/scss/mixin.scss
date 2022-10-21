@@ -20,3 +20,24 @@
   // 设置填充，使其填满
   background-size: $size;
 }
+
+@mixin position($pos:absolute, $top:0, $left:0, $w:100%, $h:100%) {
+  position: $pos;
+  top: $top;
+  left: $left;
+  width: $w;
+  height: $h;
+}
+
+@mixin positionImg ($pos:absolute, $top: 0, $right: 0, $w: 0, $h: 0, $img: ' ') {
+  position: $pos;
+  top: $top;
+  right: $right;
+  // 此处的宽高不可不写，否则无法显示
+  width: $w;
+  height: $h;
+  // 由于使用的是span标签，所以可以这样引用,使用no-repeat填充，center控制居中
+  background:url($img) no-repeat center;
+  // 设置填充，使其填满
+  background-size: contain;
+}
