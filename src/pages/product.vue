@@ -93,7 +93,7 @@ export default{
     },
     buy () {
       let id = this.$route.params.id
-      this.$route.push(`/detail/${id}`)
+      this.$router.push(`/detail/${id}`)
     },
     closeVideo () {
       this.showSlide = 'slideUp'
