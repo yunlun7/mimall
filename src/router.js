@@ -3,6 +3,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Home from './pages/home'
 import Index from './pages/index'
+import Login from './pages/login'
 import Product from './pages/product'
 import Detail from './pages/detail'
 import Cart from './pages/cart'
@@ -28,6 +29,7 @@ export default new Router({
       component: Home,
       // 加入一个重定向，是网页默认加载index
       redirect: '/index',
+      // redirect: '/login',
       // 加载子路由
       children: [
         {
@@ -49,6 +51,12 @@ export default new Router({
           component: Detail
         }
       ]
+    },
+    {
+      // 定义登录路由
+      path: '/login',
+      name: 'login',
+      component: Login
     },
     // 因为部分的页面视图和home渲染的不一样，需要再定义一个路由
     {

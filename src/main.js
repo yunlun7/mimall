@@ -6,6 +6,8 @@ import Vue from 'vue'
 import App from './App'
 import axios from 'axios'
 import VueAxios from 'vue-axios'
+// 导入cookie
+import VueCookie from 'vue-cookie'
 
 // 引入路由
 import router from '@/router'
@@ -38,6 +40,8 @@ respond.data才是接口返回的值。而data是axios内部做的封装，也�
 axios.interceptors.response.use(function (response) {
   // 获取接口返回值
   let res = response.data
+  // 获取路径，此处使用的是哈希路由 => 比如：/#/xxx
+  let path = location.hash
   // 判断状态码是否是0，  0才代表成功
   if (res.status === 0) {
     // 这个data是接口的返回值，将请求的值返回给axios
@@ -46,18 +50,25 @@ axios.interceptors.response.use(function (response) {
   }
   // 登录拦截，判断状态码是否为10（自定义），实际项目中为1008
   else if (res.status === 10) {
-    // 未登录的话，将页面跳转至登陆页面
-    window.location.href = '/#/login'
+    if (path !== '/#index') {
+      // 未登录的话，将页面跳转至登陆页面
+      window.location.href = '/#/login'
+    }
   // eslint-disable-next-line brace-style
   }
   // 真正的报错信息处理
   else {
     alert(res.msg)
+    // 抛出异常
+    return Promise.reject(res)
   }
 })
 
 // 加载插件
 Vue.use(VueAxios, axios)
+
+// 加载cookie
+Vue.use(VueCookie)
 
 // 生产环境的提示，默认为false
 Vue.config.productionTip = false

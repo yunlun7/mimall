@@ -165,6 +165,7 @@ $img: '../assets/imgs';
       background-color: $colorA;
       text-align: center;
       color: #ffffff;
+      margin-right: 0;
       .icon-cart{
         // 使用.scss文件引入，提高代码复用率
         @include bgImg(16px, 12px, '#{$img}/icon-cart-checked.png');
