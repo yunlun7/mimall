@@ -34,7 +34,7 @@
                   <!-- target：使得网页在新的标签页中打开 -->
                   <a :href="'/#/product/' + item.id" target="_blank">
                     <div class="pro-img">
-                      <img :src="item.mainImage" :alt="item.subtitle">
+                      <img v-lazy="item.mainImage" :alt="item.subtitle">
                     </div>
                     <div class="pro-name">{{item.name}}</div>
                     <!-- 价格部分需要使用过滤器 ，因为数据返回的只是金额数值-->
@@ -52,7 +52,7 @@
                   <!-- target：使得网页在新的标签页中打开 -->
                   <a href="" target="_blank">
                     <div class="pro-img">
-                      <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/4ef3713521fb9d7f114aa8bb152e220d.png?thumb=1&w=200&h=138&f=webp&q=90" alt="">
+                      <img v-lazy="'https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/4ef3713521fb9d7f114aa8bb152e220d.png?thumb=1&w=200&h=138&f=webp&q=90'" alt="">
                     </div>
                     <div class="pro-name">小米 Civi2</div>
                     <div class="pro-price">2399元起</div>
@@ -69,7 +69,7 @@
                   <!-- target：使得网页在新的标签页中打开 -->
                   <a href="" target="_blank">
                     <div class="pro-img">
-                      <img src="./../assets/imgs/nav-img/nav-3-1.jpg" alt="">
+                      <img v-lazy="'./../assets/imgs/nav-img/nav-3-1.jpg'" alt="">
                     </div>
                     <div class="pro-name">小米 壁画电视 65英寸</div>
                     <div class="pro-price">23499元起</div>

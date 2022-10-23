@@ -6,6 +6,8 @@ import Vue from 'vue'
 import App from './App'
 import axios from 'axios'
 import VueAxios from 'vue-axios'
+// 引入懒加载插件
+import VueLazyload from 'vue-lazyload'
 
 // 引入路由
 import router from '@/router'
@@ -58,6 +60,13 @@ axios.interceptors.response.use(function (response) {
 
 // 加载插件
 Vue.use(VueAxios, axios)
+
+// 加载懒加载插件
+Vue.use(VueLazyload, {
+  // 指定全局配置，loading动画
+  // svg是矢量图，也就是不管放大是是缩小，图片都不会丢失帧
+  loading: '@/assets/imgs/loading-svg/loading-bars.svg'
+})
 
 // 生产环境的提示，默认为false
 Vue.config.productionTip = false

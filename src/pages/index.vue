@@ -14,7 +14,7 @@
                 <ul v-for="(item, index) in menuList" :key="index">
                   <li v-for="(sub, i) in item" :key="i">
                     <a :href="sub ? '/#product/' + sub.id : ''">
-                      <img :src="sub ? sub.img : require('./../assets/imgs/item-box-1.png')">
+                      <img v-lazy="sub ? sub.img : require('./../assets/imgs/item-box-1.png')">
                       {{sub ? sub.name : '小米9'}}
                     </a>
                   </li>
@@ -54,7 +54,7 @@
         <!-- 这部分是轮播图 -->
         <swiper :options="swiperOption">
           <swiper-slide v-for="(item, index) in slideList" :key="index">
-            <a :href="'/#/product/' + item.id"><img :src="item.img"></a>
+            <a :href="'/#/product/' + item.id"><img v-lazy="item.img"></a>
           </swiper-slide>
               <!-- Optional controls -->
               <!-- 这是分页器 -->
@@ -67,12 +67,15 @@
       </div>
       <div class="ads-box">
         <a :href="'/#/product/' + item.id" v-for="(item, index) in adsList" :key="index">
+          <!-- 图片懒加载
+            v-lazy = " 变量名  " （如果是字符串，则使用单引号引起来）
+          -->
           <img :src="item.img" alt="">
         </a>
       </div>
       <div class="banner">
         <a href="/#/product/30">
-          <img src="./../assets/imgs/banner-1.png" alt="">
+          <img v-lazy="'./../assets/imgs/banner-1.png'" alt="">
         </a>
       </div>
     </div>
@@ -82,7 +85,7 @@
           <div class="wrapper">
             <div class="banner-left">
               <a href="/#/product/">
-                <img src="./../assets/imgs/mix-alpha.jpg" alt="">
+                <img v-lazy="'./../assets/imgs/mix-alpha.jpg'" alt="">
               </a>
             </div>
             <div class="list-box">
@@ -90,7 +93,7 @@
                 <div class="item" v-for="(item, index) in arr" :key="index">
                   <span :class="{'new-pro':index%2 == 0}">新品</span>
                   <div class="item-img">
-                    <img :src="item.mainImage" alt="">
+                    <img v-lazy="item.mainImage" alt="">
                   </div>
                   <div class="item-info">
                     <h3>{{item.name}}</h3>
