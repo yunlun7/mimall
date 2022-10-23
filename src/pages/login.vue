@@ -37,6 +37,8 @@
   </div>
 </template>
 <script>
+// 当变量太多的话，可以使用mapActions来进行结构
+// import { mapActions } from 'vuex'
 export default {
   name: 'Login',
   data () {
@@ -60,10 +62,18 @@ export default {
         // this.res = res  查看返回结果
         // 设置用户id， 使用权限时间为一个月
         this.$cookie.set('userId', res.id, {expires: '1M'})
-        // to-do 保存用户名
+        // 派发action，传递的参数res.username一定不能忘记
+        this.$store.dispatch('saveUserName', res.username)
+
+        // 使用mapActions结构后的方法
+        // this.saveUserName(res.username)
         this.$router.push('/index')
       })
     },
+
+    // 将saveUserName接构成一个方法
+    // ...mapActions(['saveUserName']),
+
     register () {
       this.axios.post('/user/register', {
         username: 'aaa',

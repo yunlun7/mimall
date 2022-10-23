@@ -8,6 +8,7 @@ import axios from 'axios'
 import VueAxios from 'vue-axios'
 // 导入cookie
 import VueCookie from 'vue-cookie'
+import store from './store'
 
 // 引入路由
 import router from '@/router'
@@ -79,5 +80,6 @@ new Vue({
   // 使用路由，此处由于文件命名和router一样，可以省略不写
   // 但是如果不是命名为router，就要使用router:路由文件名
   router,
+  store,
   render: h => h(App)
 }).$mount('#app')

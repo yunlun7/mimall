@@ -14,7 +14,7 @@
           <a href="javascript:;" v-if="username">{{username}}</a>
           <a href="javascript:;" v-if="!username" @click="login">登录</a>
           <a href="javascript:;" v-if="username">我的订单</a>
-          <a href="javascript:;" class="my-cart" @click="goToCart"><span class="icon-cart"></span>购物车</a>
+          <a href="javascript:;" class="my-cart" @click="goToCart"><span class="icon-cart"></span>购物车({{cartCount}})</a>
         </div>
       </div>
     </div>
@@ -91,13 +91,25 @@
 </template>
 
 <script>
+// import {mapState} from 'vuex'
 export default {
   name: 'NavHeader',
   data () {
     return {
-      username: 'jack',
+      // 读取用户名
       phoneList: []
     }
+  },
+  // 定义一个计时器来解决延迟问题
+  computed: {
+    username () {
+      return this.$store.state.username
+    },
+    cartCount () {
+      return this.$store.state.cartCount
+    }
+    // 使用mapState来解决延时问题
+    // ...mapState(['username', 'cartCount'])
   },
   // 定义一个过滤器
   filters: {
