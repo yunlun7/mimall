@@ -16,3 +16,18 @@ input{
   box-sizing: border-box;
   font-size: 14px;
 }
+// 浮动样式
+.fl{
+  float: left;
+}
+.fr{
+  float: right;
+}
+// 清除浮动，使用伪类的方式
+.clearfix:before,.clearfix:after{
+  content: ' ';
+  display: table;
+}
+.clearfix:after{
+  clear: both; //可以在任何位置添加样式
+}

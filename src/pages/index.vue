@@ -95,7 +95,7 @@
                   <div class="item-info">
                     <h3>{{item.name}}</h3>
                     <p>{{item.subtitle}}</p>
-                    <p class="price" @click="addCart">{{item.price}}元</p>
+                    <p class="price" @click="addCart(id)">{{item.price}}元</p>
                   </div>
                 </div>
               </div>
@@ -258,17 +258,18 @@ export default{
       })
     },
     // 加入购物车
-    addCart () {
-      this.showModal = true
+    addCart (id) {
       // 当实现了注册功能后使用，参数id也先不加上先
-      // this.axios.post('/carts', {
-      //   productId: id,
-      //   selected: true
-      // }).then(() => {
-
-      // }).catch(() => {
-      //   this.showModal = true
-      // })
+      this.axios.post('/carts', {
+        productId: id,
+        selected: true
+      }).then((res) => {
+        this.showModal = true
+        // 实时更新购物车
+        this.$store.dispatch('saveCartCount', res.cartTotalQuantity)
+      }).catch(() => {
+        this.showModal = true
+      })
     },
     goToCart () {
       this.$router.push('/cart')

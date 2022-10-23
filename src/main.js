@@ -55,6 +55,7 @@ axios.interceptors.response.use(function (response) {
       // 未登录的话，将页面跳转至登陆页面
       window.location.href = '/#/login'
     }
+    return Promise.reject(res) // 将错误抛回去
   // eslint-disable-next-line brace-style
   }
   // 真正的报错信息处理
