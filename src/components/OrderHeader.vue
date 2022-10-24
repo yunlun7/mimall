@@ -42,13 +42,16 @@ export default {
       font-size: 14px;
       margin-left: 17px;
       color: #999999;
-      font-weight: bold;
+      font-weight: 200;
     }
   }
   .title{
-    font-size: 28px;
     float: left;
+    h2{
+      // h2的优先级高于div
+    font-size: 28px;
     color: #333333;
+    }
   }
   .username{
     float: right;
