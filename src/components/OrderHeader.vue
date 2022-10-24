@@ -30,6 +30,7 @@ export default {
 <style lang="scss">
 .order-header{
   padding: 30px 0;
+  border-bottom: 2px solid #ff6600;
   .header-logo{
     float: left;
     margin-right: 54px;
