@@ -193,40 +193,6 @@ $img: '../assets/imgs';
       // 设置居中布局
       // 调用封装好的mixin.scss中的方法
       @include flex();
-      // logo可以认为是相框，而a标签可以认为是相册，应为它内部是轮播的
-      .header-logo{
-        display: inline-block;
-        width: 55px;
-        height: 55px;
-        // 加一个背景颜色，防止图片在页面上看不出来
-        background-color: $colorA;
-        // 设置两张图片
-        a{
-          display: inline-block;
-          // 要将图片完整的放进去的话，宽应该是上面样式的两倍
-          width: 110px;
-          // 高度可要可不要
-          height: 55px;
-          // 此处生成一个伪类，因为是两张图片，需要占位
-          &:before{
-            // content 这一部分很重要
-            content: ' ';
-            @include bgImg(55px, 55px, '#{$img}/mi-logo.png', 55px);
-            // 让动画效果连续起来
-            transition: margin .2s;
-          }
-          &:after{
-            // content 是占位的，这一部分很重要，如果不加的话就显示不了
-            content: ' ';
-            @include bgImg(55px, 55px, '#{$img}/mi-home.png', 55px);
-          }
-          &:hover:before{
-            margin-left: -55px;
-            // transition、transform等是css3中的样式, transition是过渡元素，可以指定元素某一个属性，控制属性在某一个时间段内过渡
-            transition: margin .2s;
-          }
-        }
-      }
       .header-menu{
         // 行内块级元素
         display: inline-block;
