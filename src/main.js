@@ -6,12 +6,13 @@ import Vue from 'vue'
 import App from './App'
 import axios from 'axios'
 import VueAxios from 'vue-axios'
-// 导入cookie
-import VueCookie from 'vue-cookie'
+import { Message } from 'element-ui' // 引入消息插件
+import 'element-ui/lib/theme-chalk/index.css' // 样式必须引入，否则插件不生效
+
+import VueCookie from 'vue-cookie' // 导入cookie
 import store from './store'
 
-// 引入路由
-import router from '@/router'
+import router from '@/router' // 引入路由
 // import env from './env'
 
 // 定义开关
@@ -60,17 +61,18 @@ axios.interceptors.response.use(function (response) {
   }
   // 真正的报错信息处理
   else {
-    alert(res.msg)
+    // alert(res.msg)
+    this.$message.warning(res.msg)
     // 抛出异常
     return Promise.reject(res)
   }
 })
 
-// 加载插件
-Vue.use(VueAxios, axios)
+Vue.use(VueAxios, axios) // 加载插件
 
-// 加载cookie
-Vue.use(VueCookie)
+Vue.use(VueCookie) // 加载cookie
+
+Vue.prototype.$message = Message
 
 // 生产环境的提示，默认为false
 Vue.config.productionTip = false

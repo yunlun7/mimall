@@ -1,6 +1,6 @@
 // 此文件用来管理入口
 import Vue from 'vue'
-import Vuex from 'Vuex'
+import Vuex from 'vuex'
 import mutations from './mutations'
 import actions from './action'
 
