@@ -61,13 +61,26 @@ export default {
       }).then((res) => {
         // this.res = res  查看返回结果
         // 设置用户id， 使用权限时间为一个月
-        this.$cookie.set('userId', res.id, {expires: '1M'})
+        this.$cookie.set('userId', res.id, {expires: 'Session'})
         // 派发action，传递的参数res.username一定不能忘记
         this.$store.dispatch('saveUserName', res.username)
 
         // 使用mapActions结构后的方法
         // this.saveUserName(res.username)
-        this.$router.push('/index')
+        this.$router.push({
+          /* query方法： 这种方法在url中是可以看得见的，不安全
+          path: '/index'
+          query:{
+            from: 'login'
+          }
+          */
+
+          // params方法： 这种方法在url中看不见
+          name: 'index', // 路由名称
+          params: {
+            from: 'login' // 用于退出登录功能实现判断
+          }
+        })
       })
     },
 

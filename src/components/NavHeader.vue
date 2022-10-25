@@ -13,6 +13,7 @@
         <div class="topbar-user">
           <a href="javascript:;" v-if="username">{{username}}</a>
           <a href="javascript:;" v-if="!username" @click="login">登录</a>
+          <a href="javascript:;" v-if="username" @click="logout">退出</a>
           <a href="javascript:;" v-if="username">我的订单</a>
           <a href="javascript:;" class="my-cart" @click="goToCart"><span class="icon-cart"></span>购物车({{cartCount}})</a>
         </div>
@@ -121,29 +122,52 @@ export default {
   },
   mounted () {
     this.getProductList()
+    let params = this.$route.params
+    // 如果从登陆页面跳转过来的，才需要重新加载数据
+    if (params && params.from === 'login') {
+      this.getCartCount() // 需要重新加载购物车数据，因为退出登录的功能会清除掉数据
+    }
   },
   methods: {
     login () {
       this.$router.push('/login')
     },
     getProductList () {
-      // 接口名称就是products，使用代理的方式
-      // 采用get方式请的话，使用params传参，若使用post就直接写
+    // 接口名称就是products，使用代理的方式
+    // 采用get方式请的话，使用params传参，若使用post就直接写
       this.axios.get('/products', {
         params: {
           categoryId: '100012',
           pageSize: 6
         }
       }).then((res) => {
-        // 设置获取到数据的最大值
-        // if (res.list.length >= 6) {
-        //   this.phoneList = res.list.slice(0, 6)
-        // }
+      // 设置获取到数据的最大值
+      // if (res.list.length >= 6) {
+      //   this.phoneList = res.list.slice(0, 6)
+      // }
         this.phoneList = res.list
       })
     },
+    // 拉取购物车信息
+    getCartCount () {
+    // 调用接口，拉取数据：get   推送数据：post
+      this.axios.get('/carts/products/sum').then((res) => {
+      // to-do  保存到vuex中
+        this.$store.dispatch('saveCartCount', res)
+      })
+    },
+    // 退出登录
+    logout () {
+      this.axios.post('/user/logout').then(() => {
+        this.$message.success('退出成功')
+        // 清空数据
+        this.$cookie.set('userId', '', {expires: '-1'})
+        this.$store.dispatch('saveUserName', '') // 清空用户名信息
+        this.$store.dispatch('saveCartCount', 0) // 清空购物车数量
+      })
+    },
     goToCart () {
-      // 路由跳转
+    // 路由跳转
       this.$router.push('/cart')
     }
   }
