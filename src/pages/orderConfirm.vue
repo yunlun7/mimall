@@ -153,7 +153,7 @@
 <script>
 import Modal from './../components/Modal'
 export default{
-  name: 'order-confirm',
+  name: 'OrderConfirm',
   data () {
     return {
       list: [], // 收货地址的列表
