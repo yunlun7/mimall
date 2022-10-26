@@ -66,6 +66,11 @@ axios.interceptors.response.use(function (response) {
     // 抛出异常
     return Promise.reject(res)
   }
+}, (error) => { // 状态码错误拦截
+  let res = error.response
+  Message.error(res.data.message) // 弹出错误提示
+  return Promise.reject(error)
+  // alert(res)
 })
 
 Vue.use(VueAxios, axios) // 加载插件

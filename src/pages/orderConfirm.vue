@@ -274,11 +274,12 @@ export default{
       let item = this.list[this.checkIndex]
       if (!item) {
         this.$message.error('请选择收货地址')
-        // return
+        return
       }
       this.axios.post('/orders', {
-        shippings: item.id
+        shippingId: item.id
       }).then((res) => {
+        // console.log(res.orderNo)
         this.$router.push({
           path: '/order/pay',
           query: {

@@ -11,14 +11,14 @@
               <p>收货信息：{{addressInfo}}</p>
             </div>
             <div class="order-total">
-              <p>应付总额：<span>2599</span>元</p>
+              <p>应付总额：<span>{{payment}}</span>元</p>
               <p>订单详情<em class="icon-down" :class="{'up':showDetail}"  @click="showDetail=!showDetail"></em></p>
             </div>
           </div>
           <div class="item-detail" v-if="showDetail">
             <div class="item">
               <div class="detail-title">订单号：</div>
-              <div class="detail-info theme-color">{{orderNo}}</div>
+              <div class="detail-info theme-color">{{orderId}}</div>
             </div>
             <div class="item">
               <div class="detail-title">收货信息：</div>
@@ -46,30 +46,51 @@
           <h3>选择以下支付方式付款</h3>
           <div class="pay-way">
             <p>支付平台</p>
-            <div class="pay pay-ali checked"></div>
-            <div class="pay pay-wechat"></div>
+            <div class="pay pay-ali" :class="{'checked':payType == 1}" @click="paySubmit(1)"></div>
+            <div class="pay pay-wechat" :class="{'checked':payType == 2}" @click="paySubmit(2)"></div>
           </div>
         </div>
       </div>
     </div>
-    <scan-pay-code v-if="showPay"></scan-pay-code>
+    <scan-pay-code v-if="showPay" @close="closePay" :img="payImg"></scan-pay-code>
+    <modal
+      title="支付确认"
+      btnType="3"
+      :showModal="showPayModal"
+      cancelText="未支付"
+      sureText="查看订单"
+      @cancel="showPayModal = false"
+      @submit="goOrderList"
+    >
+
+    </modal>
   </div>
 </template>
 <script>
-// import ScanPayCode from './../components/ScanPayCode'
+// 微信弹窗专用的支付组件
+import ScanPayCode from '../components/ScanPayCode'
+import QRCode from 'qrcode'
+import Modal from '../components/Modal.vue'
 export default{
   name: 'OrderPay',
   data () {
     return {
       showDetail: false, // 是否显示订单详情
       showPay: false, // 是否显示微信支付弹框
-      orderNo: this.$route.query.orderNo, // 获取订单参数
+      orderId: this.$route.query.orderNo, // 获取订单参数
       addressInfo: '', // 收货人地址信息
-      orderDetail: [] // 订单详情，包含了订单列表
+      orderDetail: [], // 订单详情，包含了订单列表
+      payType: '', // 支付类型
+      payImg: '', // 微信支付的二维码地址
+      showPayModal: false, // 是否显示二次支付确认弹框
+      payment: 0, // 订单支付总金额
+      T: '' // 定时器ID
     }
   },
   components: {
-    // ScanPayCode
+    ScanPayCode,
+    QRCode,
+    Modal
   },
   mounted () {
     this.getOrderDetail()
@@ -85,11 +106,61 @@ export default{
     //   this.$router.push('/order/list')
     // },
     getOrderDetail () {
-      this.axios.get(`/orders/${this.orderNo}`).then((res) => {
+      this.axios.get(`/orders/${this.orderId}`).then((res) => {
         let item = res.shippingVo
         this.addressInfo = `${item.receiverName} ${item.receiverMobile} ${item.receiverProvince} ${item.receiverCity} ${item.receiverDistrict} ${item.receiverAddress}`
         this.orderDetail = res.orderItemVoList
+        this.payment = res.payment
       })
+      // console.log(this.$route.query.orderNo)
+    },
+    paySubmit (payType) {
+      if (payType === 1) {
+        // 在新窗口中打开
+        // console.log(this.orderId) // 打印出的结果：1666772215386
+        window.open('/#/order/alipay?orderId=' + this.orderId, '_blank')
+      } else {
+        this.axios.post('/pay', {
+          orderId: this.orderId,
+          orderName: 'vue高仿小米商城',
+          amount: 0.01,
+          payType: 2 // 微信支付
+        }).then((res) => {
+          QRCode.toDataURL(res.content)
+            .then(url => {
+              this.showPay = true
+              this.payImg = url
+              this.loopOrderState()
+            })
+            .catch(() => {
+              // console.error(err)
+              this.$message.error('微信二维码生成失败，请稍后重试')
+            })
+        })
+      }
+    },
+    // 关闭支付弹框
+    closePay () {
+      this.showPay = false
+      this.showPayModal = true
+      clearInterval(this.T)
+    },
+    // 轮询当前订单支付状态
+    loopOrderState () {
+      // 需要使用定时器来设置时间间隔
+      // setInterval和setTimeout的区别是：前者会一直轮转调用，而后者指回调用一次
+      this.T = setInterval(() => {
+        this.axios.get(`/orders/${this.orderId}`).then((res) => {
+          if (res.status === 20) {
+            clearInterval(this.T)
+            this.goOrderList()
+          }
+        })
+      }, 1000)
+    },
+    // 返回订单列表页面
+    goOrderList () {
+      this.$router.push('/order/list')
     }
   }
 }
