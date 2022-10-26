@@ -1,5 +1,10 @@
 <template>
   <div class="order-pay">
+    <order-header title="订单支付">
+      <template v-slot:tip>
+        <span>请认真填写收货信息</span>
+      </template>
+    </order-header>
     <div class="wrapper">
       <div class="container">
         <div class="order-wrap">
@@ -70,6 +75,7 @@
 // 微信弹窗专用的支付组件
 import ScanPayCode from '../components/ScanPayCode'
 import QRCode from 'qrcode'
+import OrderHeader from './../components/OrderHeader'
 import Modal from '../components/Modal.vue'
 export default{
   name: 'OrderPay',
@@ -90,7 +96,8 @@ export default{
   components: {
     ScanPayCode,
     QRCode,
-    Modal
+    Modal,
+    OrderHeader
   },
   mounted () {
     this.getOrderDetail()
